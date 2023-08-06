@@ -1,4 +1,4 @@
-PROJECT_ROOT=html
+PROJECT_ROOT=www
 
 .PHONY: dev
 dev:

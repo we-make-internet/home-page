@@ -9,4 +9,4 @@ available at `/about`.
 
 `make` to run it locally.
 
-Deploy the files at `html`.
+Deploy the files with `www` as the root.
