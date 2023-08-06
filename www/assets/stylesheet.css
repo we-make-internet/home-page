@@ -5,10 +5,23 @@ body {
 }
 
 main {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 h1 {
   text-align: center;
+}
+
+.subheader {
+  text-align: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul li {
+  list-style: none;
+  margin: 1em 0;
 }
