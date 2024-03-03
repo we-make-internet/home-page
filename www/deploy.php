@@ -1,10 +1,10 @@
 <?php
-  echo hi;
-  sendStatus(200);
-  /* $key = $_POST['key'] ?? false; */
-  /* if ($key == "test") { */
-  /*   shell_exec("cd /var/www && git pull"); */
-  /*   sendStatus(200); */
-  /* } */
-  /* sendStatus(403); */
+  $key = $_POST['key'] ?? false;
+  if ($key == "test") {
+    shell_exec("cd /var/www && git pull");
+    http_response_code(200);
+    die();
+  }
+  http_response_code(403);
+  die();
 ?>
