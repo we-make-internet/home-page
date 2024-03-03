@@ -10,18 +10,6 @@ jobs:
     steps:
       - name: Run deploy
         shell: bash
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ../private.key
-          sudo chmod 600 ../private.key
+        run: curl wemakeinter.net/deploy.php
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-      - name: Run deploy
-        shell: bash
-        run: |
-          ssh -i $SSH_KEY_PATH github@wemakeinter.net
-          cd /var/www/wmi-home-page
-          git pull
-        env:
-          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
