@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Run deploy
         shell: bash
-        run: curl wemakeinter.net/deploy.php
+        run: curl -X POST --data "key=$DEPLOY_SECRET" wemakeinter.net/deploy.php
         env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          DEPLOY_SECRET: ${{secrets.DEPLOY_SECRET}}
