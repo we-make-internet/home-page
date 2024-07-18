@@ -11,7 +11,7 @@ $sequences
 
 $info
 -------------^^^----
-"
+";
 
 file_put_contents('/var/www/submissions.txt', $txt.PHP_EOL, FILE_APPEND | LOCK_EX);
 
