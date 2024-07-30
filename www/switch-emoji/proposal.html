@@ -3,14 +3,51 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/vendor/missing.css@1.0.9.min.css">
+<meta property="og:title" content="Proposal for Emoji: Up Switch and Down Switch">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wemakeinter.net/switch-emoji/proposal">
+<meta property="og:image" content="https://wemakeinter.net/switch-emoji/up-switch-emoji-color.png">
+
 <style>
 body {
+  line-height: 1.2;
   margin: 0;
   padding: 1em;
   max-width: 800px;
   margin: 0 auto;
 }
+
+h1 {
+  counter-reset: header-count;
+}
+
+h2 {
+  counter-reset: subheader-count;
+}
+
+h2::before {
+  counter-increment: header-count;
+  content: counter(header-count, upper-roman) '. ';
+}
+
+h3 {
+  counter-reset: subsubheader-count;
+}
+
+h3::before {
+  counter-increment: subheader-count;
+}
+
+h3:not(.no-lettering)::before {
+  content: counter(subheader-count, lower-alpha) '. ';
+}
+
+h4::before {
+  counter-increment: subsubheader-count;
+  content: counter(subsubheader-count) '. ';
+}
+
+
 
 table {
   border-collapse: collapse;
@@ -28,7 +65,7 @@ th, td {
 
 table.screenshots img {
   display: inline-block;
-  width: 90%;
+  width: 80%;
   margin: 10px;
 }
 
@@ -58,13 +95,13 @@ img.emoji {
 
 <h1>Proposal for Emoji: Up Switch and Down Switch</h1>
 
-<p>Submitter: Morris Kolman & Alexander Petros</p>
+<p><strong>Submitter:</strong> Morris Kolman & Alexander Petros</p>
 
-Date: Jul 17, 2024
+<strong>Date:</strong> Jul 17, 2024
 <article>
 
 
-<h2>I. Identification</h2>
+<h2>Identification</h2>
 
 <table>
   <thead>
@@ -89,11 +126,11 @@ Date: Jul 17, 2024
   </tr>
 </table>
 
-<h2>II. Images</h2>
+<h2>Images</h2>
 
 <div class=two-col>
 <section>
-  <h3>Up Switch</h3>
+  <h3 class=no-lettering>Up Switch</h3>
   <img src="./up-switch-emoji-color.png" height=100 style="height:100px" alt="A switch in the up position, full size in color">
   <img src="./up-switch-emoji-color-18.png" height=18 alt="A switch in the up position, 18x18 in color">
   <img src="./up-switch-emoji-bw.png" height=100 style="height:100px" alt="A switch in the up position, full size in black and">
@@ -101,7 +138,7 @@ Date: Jul 17, 2024
 </section>
 
 <section>
-  <h3>Down Switch</h3>
+  <h3 class=no-lettering>Down Switch</h3>
   <img src="./down-switch-emoji-color.png" height=100 style="height:100px" alt="A switch in the down position, full size in color">
   <img src="./down-switch-emoji-color-18.png" height=18 alt="A switch in the down position, 18x18 in color">
   <img src="./down-switch-emoji-bw.png" height=100 style="height:100px" alt="A switch in the down position, full size in black and">
@@ -112,7 +149,7 @@ Date: Jul 17, 2024
 <p>
 <strong>License</strong>: These images are the original work of the submitters and are certified to have the appropriate licenses for use by the UTC.
 
-<h2>III. Sort Location</h2>
+<h2>Sort Location</h2>
 
 <dl class=grid>
   <dt>Category<dd>computer
@@ -123,7 +160,7 @@ Date: Jul 17, 2024
       💻
 </dl>
 
-<h2>IV. Selection Factors - Inclusion</h2>
+<h2>Selection Factors - Inclusion</h2>
 
 <h3>Compatibility: N/A</h3>
 <h3>Expected Usage Level: </h3>
@@ -147,7 +184,7 @@ Date: Jul 17, 2024
     <td>Google Videos</td>
     <td>
       <img src="./images/google-videos-switch.png" alt="">
-      <img src="./images/google-videos-switch-minus-nintentdo.png" alt="">
+      <img src="./images/google-switch-minus-nintentdo.png" alt="">
     </td>
   </tr>
 
@@ -295,7 +332,7 @@ The up and down switches are themselves a complete pair, representing the only t
 
 Many related categories of emoji can express an “engaged” or “disengaged” state (🔒/🔓, 🔋/🪫, 📷/📸). While it would be not be feasible to add on and off states for every electronic device (📺, 💻, 📱, 📻, 💡, etc.), adding the switches instantly makes it possible to express that with the entire existing set of devices.
 
-<h2>IV. Selection Factors - Exclusion</h2>
+<h2>Selection Factors - Exclusion</h2>
 
 <dl>
 <dt>Petitions or “Frequent Requests” <dd> No such petitions exist.
@@ -314,7 +351,7 @@ landmarks, deities <dd> No
 
 </dl>
 
-<h2>IV. Other information</h2>
+<h2>Other information</h2>
 
 <p>
 <strong>Regional differences:</strong>

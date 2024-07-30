@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="/vendor/missing.css@1.0.9.min.css">
 
 <style>
+html {
+  background-color: white;
+}
+
 body {
   margin: 0;
   padding: 1em;
@@ -17,31 +21,24 @@ body > header {
   border: none;
 }
 
-label {
-  display: block;
-  margin: 2rem 0;
-}
-
-textarea {
-  display: block;
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>
 
-<!-- <header><a href="/">We Make Internet</a></header> -->
 <h1>Switch Emoji Proposal</h1>
 
-We're proposing a new emoji!
+We're proposing two new emoji!
 
-<p><a href="/switch-emoji/switch-emoji-proposal.pdf">View & download the proposal as a PDF</a></p>
-<p><a href="/switch-emoji/proposal">View the proposal</a></p>
-<p><a href="https://docs.google.com/document/d/16VF-qg8W9c65X8ziQT3gPyOe9b8qe791HUTUFllIHbU">View the google docs version</a></p>
+<section>
+<img src="./switch-emoji/up-switch-emoji-color.png" height=100 style="height:100px" alt="A switch in the up position, full size in color">
+<img src="./switch-emoji/down-switch-emoji-color.png" height=100 style="height:100px" alt="A switch in the down position, full size in color">
+</section>
 
+<p><a href="/switch-emoji/proposal">View the proposal (HTML)</a></p>
+<p><a href="/switch-emoji/switch-emoji-proposal.pdf">View the proposal (PDF)</a></p>
+<p><a href="/switch-emoji/switch-emoji-proposal.pdf" download>Download the proposal (PDF)</a></p>
 
-<h2>Tell us how you would use it:</h2>
+<p><a href="/">Return to WMI Homepage</a>
 
-<form action="/switch-emoji/user.php" method=POST>
-    <label>Give us some sequences that you would use. Use the ⬆️  or ⬇️  instead of the switch
-      up or switch down.<textarea name=sequences></textarea></label>
-    <label>Anything else?<textarea name=info></textarea></label>
-    <button>Submit</button>
-</form>
