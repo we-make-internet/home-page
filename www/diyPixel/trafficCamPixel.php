@@ -16,7 +16,7 @@ $queryParams = parse_url($referringUrl, PHP_URL_QUERY);
 //THIS IS THE SCRIPT FOR THE ACTUAL TRACKING
 $date = date('Y-m-d H:i:s', $_SERVER['REQUEST_TIME']);
 $txt = $date.",". $ip.",". $referringUrl.",". $queryParams;
-$myfile = file_put_contents('~/var/www/trafficCamLog.txt', $txt.PHP_EOL , FILE_APPEND);
+$myfile = file_put_contents('/var/www/trafficCamLog.txt', $txt.PHP_EOL , FILE_APPEND);
 exit;
 
 ?>
