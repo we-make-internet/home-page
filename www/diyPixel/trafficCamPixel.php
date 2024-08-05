@@ -10,7 +10,7 @@ readfile('pixel.gif');
 // Get other info
 $ip = $_SERVER['REMOTE_ADDR'];
 $referringUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'Direct';
-$queryParams = parse_url($referringUrl, PHP_URL_QUERY);
+$queryParams = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : 'No query parameters';
 
 
 //THIS IS THE SCRIPT FOR THE ACTUAL TRACKING
