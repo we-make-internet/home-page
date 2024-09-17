@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<title>Ice Puzzles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  padding: 0;
+  margin: 0;
+}
+
+canvas {
+  background: lightblue;
+  display: block;
+  margin: 0px auto 0 auto;
+}
+
+button {
+  margin: 10px;
+}
+
+.button-row {
+  margin: 10px auto;
+  width: fit-content;
+}
+</style>
+
+
+<canvas id=field width=400 height=400></canvas>
+
+<div class=button-row>
+  <button type=button id=reset onclick="up()">Up</button>
+  <button type=button id=reset onclick="down()">Down</button>
+  <button type=button id=reset onclick="left()">Left</button>
+  <button type=button id=reset onclick="right()">Right</button>
+  <button type=button id=reset onclick="resetGame()">Reset</button>
+</div>
+<script>
+const canvas = document.getElementById('field')
+const ctx = canvas.getContext('2d')
+
+const PLAYER_HEIGHT = 40
+const PLAYER_WIDTH = 40
+const PLAYER_COLOR = 'gray';
+
+const PLAYER_MAX_SPEED = 4
+
+let game
+let rightPressed, leftPressed, upPressed, downPressed, spacePressed
+
+const Movement = { Up: 'Up', Down: 'Down', Left: 'Left', Right: 'Right', Stopped: 'Stopped' }
+
+function newGame() {
+  const game = {
+    player: {
+      x: 0,
+      y: 0 ,
+      movement: Movement.Stopped,
+      speed: PLAYER_MAX_SPEED
+    }
+  }
+  return game
+}
+
+function resetGame() {
+  game = newGame()
+}
+
+function step() {
+  const { player } = game
+
+  // Move the player if they are in movement
+  if (player.movement == Movement.Right) {
+    player.x = Math.min(player.x + player.speed, canvas.width - PLAYER_WIDTH)
+    if (player.x == canvas.width - PLAYER_WIDTH) player.movement = Movement.Stopped
+  } else if (player.movement == Movement.Left) {
+    player.x = Math.max(player.x - player.speed, 0)
+    if (player.x == 0) player.movement = Movement.Stopped
+  } else if (player.movement == Movement.Up) {
+    player.y = Math.max(player.y - player.speed, 0)
+    if (player.y == 0) player.movement = Movement.Stopped
+  } else if (player.movement == Movement.Down) {
+    player.y = Math.min(player.y + player.speed, canvas.height - PLAYER_HEIGHT)
+    if (player.y == canvas.height - PLAYER_HEIGHT) player.movement = Movement.Stopped
+  }
+
+  // Do all drawing and then request next frame
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  drawPlayer(player)
+  requestAnimationFrame(step)
+}
+
+function drawPlayer(player) {
+  ctx.fillStyle = PLAYER_COLOR
+
+  ctx.beginPath()
+  ctx.rect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT, [7, 7, 0, 0])
+  ctx.closePath()
+  ctx.fill()
+}
+
+function up() {
+  if (game.player.movement == Movement.Stopped) game.player.movement = Movement.Up
+}
+function down() {
+  if (game.player.movement == Movement.Stopped) game.player.movement = Movement.Down
+}
+function left() {
+  if (game.player.movement == Movement.Stopped) game.player.movement = Movement.Left
+}
+function right() {
+  if (game.player.movement == Movement.Stopped) game.player.movement = Movement.Right
+}
+
+// Handle keypresses
+function handleKeydown(e) {
+  if (e.key === 'Right' || e.key === 'ArrowRight') right()
+  if (e.key === 'Left' || e.key === 'ArrowLeft') down()
+  if (e.key === 'Up' || e.key === 'ArrowUp') up()
+  if (e.key === 'Down' || e.key === 'ArrowDown') left()
+}
+document.addEventListener('keydown', handleKeydown)
+
+resetGame()
+step()
+</script>
