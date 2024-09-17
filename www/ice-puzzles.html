@@ -115,9 +115,9 @@ function right() {
 // Handle keypresses
 function handleKeydown(e) {
   if (e.key === 'Right' || e.key === 'ArrowRight') right()
-  if (e.key === 'Left' || e.key === 'ArrowLeft') down()
+  if (e.key === 'Left' || e.key === 'ArrowLeft') left()
   if (e.key === 'Up' || e.key === 'ArrowUp') up()
-  if (e.key === 'Down' || e.key === 'ArrowDown') left()
+  if (e.key === 'Down' || e.key === 'ArrowDown') down()
 }
 document.addEventListener('keydown', handleKeydown)
 
